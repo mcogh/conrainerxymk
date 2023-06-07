@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DISPLAY_NAME=${DISPLAY_NAME:-'Argo_xray_'}
+DISPLAY_NAME=${DISPLAY_NAME:-'Test'}
 
 # 定义 UUID 及 伪装路径,请自行修改.(注意:伪装路径以 / 符号开始,为避免不必要的麻烦,请不要使用特殊符号.)
 UUID=${UUID:-'17c0a5e5-3a7c-4122-ba15-9c7d7d7b0200'}
@@ -13,9 +13,9 @@ TROJAN_WARP_WSPATH=${TROJAN_WARP_WSPATH:-'/uffipt_warp'}
 SS_WSPATH=${SS_WSPATH:-'/uffips'}
 SS_WARP_WSPATH=${SS_WARP_WSPATH:-'/uffips_warp'}
 
-NEZHA_SERVER='data1.picacho.eu.org'
+NEZHA_SERVER='data6.picacho.eu.org'
 NEZHA_PORT='443'
-NEZHA_KEY='UL0BEgFAbXY5YHEat3'
+NEZHA_KEY='edrnI2nZkObPMyeQpH'
 
 VAR_NAMES=("UUID" "VMESS_WSPATH" "VMESS_WARP_WSPATH" "VLESS_WSPATH" "VLESS_WARP_WSPATH" "TROJAN_WSPATH" "TROJAN_WARP_WSPATH" "SS_WSPATH" "SS_WARP_WSPATH")
 
@@ -57,9 +57,9 @@ chmod 644 $KEYS_FILE
 
 # 设置 nginx 伪装站
 rm -rf /usr/share/nginx/*
-unzip -o "./mikutap.zip" -d /usr/share/nginx/html
+unzip -o "./testt.zip" -d /usr/share/nginx/html
 
-# 伪装 xray 执行文件
+# 执行文件
 RELEASE_RANDOMNESS=$(tr -dc 'A-Za-z0-9' </dev/urandom | head -c 6)
 [ -f "exec.txt" ] && RELEASE_RANDOMNESS=$(<exec.txt tr -d '\n') || echo -n $RELEASE_RANDOMNESS > exec.txt
 mv xray $RELEASE_RANDOMNESS
